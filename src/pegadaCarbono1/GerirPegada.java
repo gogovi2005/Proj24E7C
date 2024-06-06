@@ -1,5 +1,8 @@
-package pegadaCarbono1;
 
+package pegadaCarbono1;
+/**
+ * Grupo 7C
+ */
 import java.util.Scanner;
 
 public class GerirPegada {
