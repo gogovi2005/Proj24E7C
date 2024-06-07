@@ -42,6 +42,8 @@ public class Main {
             System.out.println("5- Calcular Pegada");
             System.out.println("6- Consultar Gastos");
             System.out.println("7- Definir Metas");
+            System.out.println("8- Adicionar comentários");
+            System.out.println("9- TESTE PRINTAR");
             System.out.println("0- Terminar");
 
             if (scanner.hasNextInt()) {
@@ -163,6 +165,15 @@ public class Main {
                         System.out.println("Gasolina: " + diferencaGasolina + " kg CO2");
                         System.out.println("Eletricidade: " + diferencaEletricidade + " kg CO2");
                         break;
+                        
+                    case 8:
+                    	GerirPegada.AdicionarComents();
+                    break;
+                    
+                    case 9:
+                    	GerirPegada.ImprimirComents();
+                    break;
+                    
                     case 0:
                         System.out.println("Terminando...");
                         break;

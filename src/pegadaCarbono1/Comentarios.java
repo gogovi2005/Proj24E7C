@@ -36,8 +36,7 @@ public class Comentarios {
 	}
 	@Override
 	public String toString() {
-	return "Comentarios [getNome()=" + getNome() + ", getData()=" + getData() + ", getComentario()=" + getComentario()
-			+ "]";
+		return "Nome:" + getNome() + ", Data:" + getData() + ", Comentário:" + getComentario();
 	}
 
 }

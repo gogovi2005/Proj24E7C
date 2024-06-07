@@ -1,17 +1,17 @@
-
 package pegadaCarbono1;
-/**
- * Grupo 7C
- */
+
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class GerirPegada {
     private Tipo valores;
+    private Comentarios coments;
     private double metaAgua;
     private double metaGas;
     private double metaGasolina;
     private double metaEletricidade;
-
+    static ArrayList<Comentarios> listaComents = new ArrayList<>();
+    
     public GerirPegada() {
         this.valores = new Tipo(0, 0, 0, 0);
         this.metaAgua = 0;
@@ -82,5 +82,20 @@ public class GerirPegada {
         System.out.println("Gás: " + (metaGas - valores.getGas()) + " kg CO2");
         System.out.println("Gasolina: " + (metaGasolina - valores.getGasolina()) + " kg CO2");
         System.out.println("Eletricidade: " + (metaEletricidade - valores.getEletricidade()) + " kg CO2");
+    }
+    public static void AdicionarComents() {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.println("Qual o nome?");
+    	String nome = scanner.nextLine();
+    	System.out.println("Qual a data?");
+    	String data = scanner.nextLine();
+    	System.out.println("Digite o seu comentário");
+    	String comentario = scanner.nextLine();
+    	listaComents.add(new Comentarios(nome, data, comentario));
+    }
+    public static void ImprimirComents() {
+    	for(Comentarios comentPrint : listaComents) {
+    		System.out.println(comentPrint);
+    	}
     }
 }
