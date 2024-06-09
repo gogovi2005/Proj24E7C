@@ -145,7 +145,9 @@ public class Main {
                         break;
                     case 6:
                         gerirPegada.ConsultarGastos();
-                        break;
+                        gerirPegada.EstadoCritico();
+                    break;
+                    
                     case 7:
                         System.out.println("Definir Metas:");
                         System.out.print("Digite a meta desejada de consumo de água em kg CO2: ");
