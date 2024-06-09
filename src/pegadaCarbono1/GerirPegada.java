@@ -97,13 +97,13 @@ public class GerirPegada {
     	   	}
     }
     public void EstadoCritico() {
-    	if(valores.getAgua() > valores.getGasolina() || valores.getAgua() > valores.getGas() || valores.getAgua() > valores.getEletricidade()) {
+    	if(valores.getAgua() > valores.getGasolina() && valores.getAgua() > valores.getGas() && valores.getAgua() > valores.getEletricidade()) {
     		System.out.println("O seu gasto mais elevado é o de água. Experimente reduzir o fluxo de água das suas torneiras");
     	}
-    	if(valores.getGasolina() > valores.getAgua() || valores.getGasolina() > valores.getGas() || valores.getGasolina() > valores.getEletricidade()) {
+    	if(valores.getGasolina() > valores.getAgua() && valores.getGasolina() > valores.getGas() && valores.getGasolina() > valores.getEletricidade()) {
     		System.out.println("O seu gasto mais elevado é o de gasolina. Experimente andar mais em transportes públicos");
     	}
-    	if(valores.getGas() > valores.getGasolina() || valores.getGas() > valores.getAgua() || valores.getGas() > valores.getEletricidade()) {
+    	if(valores.getGas() > valores.getGasolina() && valores.getGas() > valores.getAgua() && valores.getGas() > valores.getEletricidade()) {
     		System.out.println("O seu gasto mais elevado é o de gás. Experimente tomar banho sem aquecer demasiado a água");
     	}
     	else {
