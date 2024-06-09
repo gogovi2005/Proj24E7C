@@ -85,17 +85,29 @@ public class GerirPegada {
     }
     public static void AdicionarComents() {
     	Scanner scanner = new Scanner(System.in);
-    	System.out.println("Qual o nome?");
-    	String nome = scanner.nextLine();
     	System.out.println("Qual a data?");
     	String data = scanner.nextLine();
     	System.out.println("Digite o seu comentário");
     	String comentario = scanner.nextLine();
-    	listaComents.add(new Comentarios(nome, data, comentario));
+    	listaComents.add(new Comentarios(data, comentario));
     }
     public static void ImprimirComents() {
     	for(Comentarios comentPrint : listaComents) {
     		System.out.println(comentPrint);
+    	   	}
+    }
+    public void EstadoCritico() {
+    	if(valores.getAgua() > valores.getGasolina() || valores.getAgua() > valores.getGas() || valores.getAgua() > valores.getEletricidade()) {
+    		System.out.println("O seu gasto mais elevado é o de água. Experimente reduzir o fluxo de água das suas torneiras");
+    	}
+    	if(valores.getGasolina() > valores.getAgua() || valores.getGasolina() > valores.getGas() || valores.getGasolina() > valores.getEletricidade()) {
+    		System.out.println("O seu gasto mais elevado é o de gasolina. Experimente andar mais em transportes públicos");
+    	}
+    	if(valores.getGas() > valores.getGasolina() || valores.getGas() > valores.getAgua() || valores.getGas() > valores.getEletricidade()) {
+    		System.out.println("O seu gasto mais elevado é o de gás. Experimente tomar banho sem aquecer demasiado a água");
+    	}
+    	else {
+    		System.out.println("O seu gasto mais elevado é o de eletricidade. Experimente desligar as luzes sempre que não está numa certa divisão");
     	}
     }
 }

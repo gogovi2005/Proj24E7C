@@ -32,6 +32,8 @@ public class Main {
             }
         } while (true);
 
+        
+        
         int option = -1;
         while (option != 0) {
             System.out.println("Menu:");
@@ -42,8 +44,8 @@ public class Main {
             System.out.println("5- Calcular Pegada");
             System.out.println("6- Consultar Gastos");
             System.out.println("7- Definir Metas");
-            System.out.println("8- Adicionar comentários");
-            System.out.println("9- TESTE PRINTAR");
+            System.out.println("8- Adicionar comentário anónimo");
+            System.out.println("9- Mostrar comentários da comunidade");
             System.out.println("0- Terminar");
 
             if (scanner.hasNextInt()) {
@@ -129,6 +131,7 @@ public class Main {
                     case 5:
                         double pegadaTotal = gerirPegada.CalcularPegada();
                         if (pegadaTotal != -1) {
+                        	
                             System.out.println("Sua pegada de carbono total é: " + pegadaTotal + " kg CO2");
                             if (pegadaTotal <= 165) {
                                 System.out.println("Está de acordo com as metas das Nações Unidas. Parabéns!");
