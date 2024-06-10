@@ -20,7 +20,7 @@ public class Comentarios {
 
 	@Override
 	public String toString() {
-		return "Comentário:" + getComentario() + "Data:" + getData();
+		return "Data: " + getComentario() + " Comentário: " + getData();
 	}
 
 }

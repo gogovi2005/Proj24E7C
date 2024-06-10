@@ -11,7 +11,7 @@ public class GerirPegada {
     private double metaGasolina;
     private double metaEletricidade;
     static ArrayList<Comentarios> listaComents = new ArrayList<>();
-    
+
     public GerirPegada() {
         this.valores = new Tipo(0, 0, 0, 0);
         this.metaAgua = 0;
@@ -25,22 +25,22 @@ public class GerirPegada {
     }
 
     public void RegistarAgua(double litros) {
-        double carbono = litros * 0.0003; 
+        double carbono = litros * 0.0003;
         valores.setAgua(valores.getAgua() + carbono);
     }
 
     public void RegistarGas(double metrosCubicos) {
-        double carbono = metrosCubicos * 2.1; 
+        double carbono = metrosCubicos * 2.1;
         valores.setGas(valores.getGas() + carbono);
     }
 
     public void RegistarTransporte(double litrosGasolina) {
-        double carbono = litrosGasolina * 2.3; 
+        double carbono = litrosGasolina * 2.3;
         valores.setGasolina(valores.getGasolina() + carbono);
     }
 
     public void RegistarEletricidade(double kWh) {
-        double carbono = kWh * 0.5; 
+        double carbono = kWh * 0.5;
         valores.setEletricidade(valores.getEletricidade() + carbono);
     }
 
@@ -73,7 +73,6 @@ public class GerirPegada {
         this.metaGasolina = scanner.nextDouble();
         System.out.print("Digite a meta desejada de consumo de eletricidade em kg CO2: ");
         this.metaEletricidade = scanner.nextDouble();
-        scanner.close();
     }
 
     public void VerificarMetas() {
@@ -82,6 +81,26 @@ public class GerirPegada {
         System.out.println("Gás: " + (metaGas - valores.getGas()) + " kg CO2");
         System.out.println("Gasolina: " + (metaGasolina - valores.getGasolina()) + " kg CO2");
         System.out.println("Eletricidade: " + (metaEletricidade - valores.getEletricidade()) + " kg CO2");
+    }
+
+    public void CompararPegada(GerirPegada outroUsuario) {
+        double minhaPegada = this.CalcularPegada();
+        double outraPegada = outroUsuario.CalcularPegada();
+
+        if (minhaPegada != -1 && outraPegada != -1) {
+            System.out.println("Sua pegada de carbono: " + minhaPegada + " kg CO2");
+            System.out.println("Pegada de carbono do outro usuário: " + outraPegada + " kg CO2");
+
+            if (minhaPegada < outraPegada) {
+                System.out.println("Sua pegada de carbono é menor.");
+            } else if (minhaPegada > outraPegada) {
+                System.out.println("Sua pegada de carbono é maior.");
+            } else {
+                System.out.println("Suas pegadas de carbono são iguais.");
+            }
+        } else {
+            System.out.println("Não foi possível comparar as pegadas de carbono. Verifique se todos os registros estão completos.");
+        }
     }
     public static void AdicionarComents() {
     	Scanner scanner = new Scanner(System.in);
@@ -106,7 +125,7 @@ public class GerirPegada {
     	if(valores.getGas() > valores.getGasolina() && valores.getGas() > valores.getAgua() && valores.getGas() > valores.getEletricidade()) {
     		System.out.println("O seu gasto mais elevado é o de gás. Experimente tomar banho sem aquecer demasiado a água");
     	}
-    	else {
+    	if (valores.getEletricidade() > valores.getAgua() && valores.getEletricidade() > valores.getGas() && valores.getEletricidade() > valores.getGasolina()) {
     		System.out.println("O seu gasto mais elevado é o de eletricidade. Experimente desligar as luzes sempre que não está numa certa divisão");
     	}
     }
